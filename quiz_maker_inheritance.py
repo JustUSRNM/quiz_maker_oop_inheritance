@@ -1,4 +1,5 @@
 import json
+import os
 # creating a class for making a question
 class question_making:
     def __init__(self):
@@ -41,7 +42,11 @@ class quiz_maker:
         with open(filename, "w") as json_file:
             json.dump(file_data, json_file, indent=4)
 # running the program
+if __name__ == "__main__":
+    quiz = quiz_maker()
+    quiz.cycle()
 # saving the data to a text file
+    program_path = os.path.dirname(os.path.abspath(__file__))
+    file_path = os.path.join(program_path, "quiz.json")
+    quiz.saving(file_path)
 
-test = quiz_maker()
-test.cycle()
